@@ -1,4 +1,4 @@
-package Diana_Friptuleac.eventi;
+package Diana_Friptuleac.classi;
 
 import jakarta.persistence.*;
 
@@ -27,16 +27,22 @@ public class Evento {
     @Column(name = "max_nr_partecipanti")
     private int max_nr_partecipanti;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
     public Evento() {
         //il costruttore vuoto per JPA
     }
 
-    public Evento(String titolo, LocalDate data, String descrizione, EventoType tipo_evento, int max_nr_partecipanti) {
+
+    public Evento(String titolo, LocalDate data, String descrizione, EventoType tipo_evento, int max_nr_partecipanti, Location location) {
         this.titolo = titolo;
         this.data = data;
         this.descrizione = descrizione;
         this.tipo_evento = tipo_evento;
         this.max_nr_partecipanti = max_nr_partecipanti;
+        this.location = location;
     }
 
     public long getId() {
@@ -83,6 +89,14 @@ public class Evento {
         this.tipo_evento = tipo_evento;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "Evento{" +
@@ -92,6 +106,7 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipo_evento=" + tipo_evento +
                 ", max_nr_partecipanti=" + max_nr_partecipanti +
+                ", location=" + location +
                 '}';
     }
 }

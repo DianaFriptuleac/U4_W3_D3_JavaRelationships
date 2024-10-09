@@ -1,4 +1,4 @@
-package Diana_Friptuleac.eventi;
+package Diana_Friptuleac.classi;
 
 public enum EventoType {
     PUBBLICO, PRIVATO

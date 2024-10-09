@@ -1,6 +1,6 @@
 package Diana_Friptuleac.dao;
 
-import Diana_Friptuleac.eventi.Evento;
+import Diana_Friptuleac.classi.Evento;
 import Diana_Friptuleac.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
