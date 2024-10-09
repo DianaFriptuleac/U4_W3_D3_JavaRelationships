@@ -3,6 +3,8 @@ package Diana_Friptuleac.classi;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "persona")
@@ -22,6 +24,9 @@ public class Persona {
     @Enumerated(EnumType.STRING)
     @Column(name = "sesso")
     private SessoPersona sesso_persona;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Partecipazioni> partecipazionis = new ArrayList<>();
 
     public Persona() {
     }  //costruttore vuoto
@@ -78,6 +83,11 @@ public class Persona {
         this.sesso_persona = sesso_persona;
     }
 
+    public List<Partecipazioni> getPartecipazionis() {
+        return partecipazionis;
+    }
+
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -87,6 +97,7 @@ public class Persona {
                 ", email='" + email + '\'' +
                 ", data_nascita=" + data_nascita +
                 ", sesso_persona=" + sesso_persona +
+                ", participations=" + partecipazionis +
                 '}';
     }
 }

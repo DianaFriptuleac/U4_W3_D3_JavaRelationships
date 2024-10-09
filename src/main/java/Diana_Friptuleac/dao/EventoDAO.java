@@ -23,16 +23,19 @@ public class EventoDAO {
 
     }
 
-    //Metodo getById
-    public Evento getById(long eventoId) {
-        Evento foundEvento = entityManager.find(Evento.class, eventoId);
-        if (foundEvento == null) throw new NotFoundException(eventoId);
-        return foundEvento;
+
+    // Metodo per trovare un evento per ID
+    public Evento findById(Long id) {
+        Evento found = entityManager.find(Evento.class, id);
+        if (found == null) {
+            throw new NotFoundException("Evento con ID " + id + " non trovata.");
+        }
+        return found;
     }
 
     //Metodo delete
     public void delete(long eventoId) {
-        Evento foundEvent = this.getById(eventoId);
+        Evento foundEvent = this.findById(eventoId);
         EntityTransaction transaction = entityManager.getTransaction();  //nuova transazione creata da Entity Manager
         transaction.begin();
         entityManager.remove(foundEvent);

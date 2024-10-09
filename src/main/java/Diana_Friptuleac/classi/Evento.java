@@ -31,6 +31,7 @@ public class Evento {
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
+
     public Evento() {
         //il costruttore vuoto per JPA
     }
@@ -97,6 +98,7 @@ public class Evento {
         this.location = location;
     }
 
+
     @Override
     public String toString() {
         return "Evento{" +
@@ -106,7 +108,6 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipo_evento=" + tipo_evento +
                 ", max_nr_partecipanti=" + max_nr_partecipanti +
-                ", location=" + location +
                 '}';
     }
 }

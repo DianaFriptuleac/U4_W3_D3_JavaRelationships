@@ -15,7 +15,7 @@ public class Partecipazioni {
 
     @ManyToOne
     @JoinColumn(name = "persona_id", nullable = false)
-    private Persona partecipante;
+    private Persona persona;
 
     @ManyToOne
     @JoinColumn(name = "evento_id", nullable = false)
@@ -26,7 +26,7 @@ public class Partecipazioni {
 
     public Partecipazioni(StatoPartecipazione stato, Persona partecipante, Evento evento) {
         this.stato = stato;
-        this.partecipante = partecipante;
+        this.persona = partecipante;
         this.evento = evento;
 
     }
@@ -44,11 +44,11 @@ public class Partecipazioni {
     }
 
     public Persona getPartecipante() {
-        return partecipante;
+        return persona;
     }
 
     public void setPartecipante(Persona partecipante) {
-        this.partecipante = partecipante;
+        this.persona = partecipante;
     }
 
     public Evento getEvento() {
@@ -64,7 +64,7 @@ public class Partecipazioni {
         return "Partecipazioni{" +
                 "id=" + id +
                 ", stato=" + stato +
-                ", partecipante=" + partecipante +
+                ", partecipante=" + persona +
                 ", evento=" + evento +
                 '}';
     }
