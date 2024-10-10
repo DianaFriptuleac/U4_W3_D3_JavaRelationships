@@ -64,8 +64,8 @@ public class Partecipazioni {
         return "Partecipazioni{" +
                 "id=" + id +
                 ", stato=" + stato +
-                ", partecipante=" + persona +
-                ", evento=" + evento +
+                ", partecipante=" + (persona != null ? persona.getId() : "null") +  // Stampo solo l'ID
+                ", evento=" + (evento != null ? evento.getId() : "null") +  // Stampo solo l'ID
                 '}';
     }
 }
